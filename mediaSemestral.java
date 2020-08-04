@@ -1,4 +1,4 @@
-package primeiroProjeto;
+package projetoIniciantes;
 import java.util.Scanner;
 public class mediaSemestral {
 
@@ -8,116 +8,122 @@ public class mediaSemestral {
 			
 			Scanner sn =new Scanner(System.in);
 			double prova,projeto,lista, maior=0,mediaT,total=0,menor=0;
-			int i=0, al=2;
-			double notasFim []= new double[al];
+			int i=0, c=0,al=100;
 			int recuperacao=0, aprovado=0,reprovado=0;
+			double notasFinal []= new double[100];
 			
 			
 			
-			System.out.println("Programa de mÈdia Semestral\n");
-			System.out.println("Digite a quantidade de alunos");
+			System.out.println("Programa de m√©dia Semestral\n");
+			System.out.print("Digite a quantidade de alunos: ");
 			al =sn.nextInt();
-			for(i=0; i<al; i++){
 			
-			System.out.println("=======Vamos para o Primeiro Bimestre=======\n");
-			System.out.println("Digite a nota da prova ");
+			
+			for(i=1; i<al+1; i++){
+				//CALCULO DA MEDIA PRIMEIRO SEMESTRE
+			System.out.println("\n");
+			System.out.println(i+"¬∫ aluno");
+			System.out.print("=======Vamos para o Primeiro Bimestre=======\n");
+			System.out.print("Digite a nota da prova:  ");
 			prova = sn.nextDouble();
-			System.out.println("Digite a nota do projeto ");
+			System.out.print("Digite a nota do projeto:  ");
 			projeto = sn.nextDouble();
-			System.out.println("Digite a nota da lista de exercicios");
+			System.out.print("Digite a nota da lista de exercicios:  ");
 			lista = sn.nextDouble();
-			double media = ((prova*5)+(projeto*3)+(lista*2))/10;				////CALCULO DA MEDIA PRIMEIRO SEMESTRE
+			double media = ((prova*5)+(projeto*3)+(lista*2))/10;				
 			
 			
-			System.out.println("=======Vamos para o Segundo Bimestre=======\n");
-			System.out.println("Digite a nota da prova ");
+			//CALCULO DA MEDIA SEGUNDO SEMESTRE
+			System.out.println("\n");
+			System.out.print("=======Vamos para o Segundo Bimestre=======\n");
+			System.out.print("Digite a nota da prova:  ");
 			prova = sn.nextDouble();
-			System.out.println("Digite a nota do projeto ");
+			System.out.print("Digite a nota do projeto:  ");
 			projeto = sn.nextDouble();
-			System.out.println("Digite a nota da lista de exercicios");
+			System.out.print("Digite a nota da lista de exercicios: ");
 			lista = sn.nextDouble();
-			double media2 = ((prova*5)+(projeto*3)+(lista*2))/10;				//CALCULO DA MEDIA SEGUNDO SEMESTRE
+			double media2 = ((prova*5)+(projeto*3)+(lista*2))/10;				
 			
-			
-			System.out.println("=======Vamos para o Terceiro Bimestre=======\n");
-			System.out.println("Digite a nota da prova ");
+			//CALCULO DA MEDIA TERCEIRO SEMESTRE
+			System.out.println("\n");
+			System.out.print("=======Vamos para o Terceiro Bimestre=======\n");
+			System.out.print("Digite a nota da prova:  ");
 			prova = sn.nextDouble();
-			System.out.println("Digite a nota do projeto ");
+			System.out.print("Digite a nota do projeto:  ");
 			projeto = sn.nextDouble();
-			System.out.println("Digite a nota da lista de exercicios");
+			System.out.print("Digite a nota da lista de exercicios: ");
 			lista = sn.nextDouble();
-			double media3 = ((prova*5)+(projeto*3)+(lista*2))/10;				//CALCULO DA MEDIA TERCEIRO SEMESTRE
+			double media3 = ((prova*5)+(projeto*3)+(lista*2))/10;				
 			
-			
-			System.out.println("=======Vamos para o Quarto Bimestre=======\n");
-			System.out.println("Digite a nota da prova ");
+			//CALCULO DA MEDIA QUARTO SEMESTRE
+			System.out.println("\n");
+			System.out.print("=======Vamos para o Quarto Bimestre=======\n");
+			System.out.print("Digite a nota da prova:  ");
 			prova = sn.nextDouble();
-			System.out.println("Digite a nota do projeto ");
+			System.out.print("Digite a nota do projeto:  ");
 			projeto = sn.nextDouble();
-			System.out.println("Digite a nota da lista de exercicios");
+			System.out.print("Digite a nota da lista de exercicios: ");
 			lista = sn.nextDouble();
-			double media4 = ((prova*5)+(projeto*3)+(lista*2))/10;			//CALCULO DA MEDIA QUARTO SEMESTRE
+			double media4 = ((prova*5)+(projeto*3)+(lista*2))/10;			
 			
 			
 			
-			double totalFim = (media+media2+media3+media4)/4;		//CALCULO DA MEDIA FINAL DE CADA ALUNO
+			//CALCULO DA MEDIA FINAL DE CADA ALUNO
+			double totalFim = (media+media2+media3+media4)/4;	
+			total=total+totalFim;
 			
-			total += totalFim;										//ADICIONADO O VALOR PARA REALIZAR A CONTA
+
+			
+			notasFinal[i]=totalFim;
+			
+			
 						
-							
-			notasFim[i] = totalFim;								//ARRAY PARA SEPARAR NOTAS
-				
-				if(totalFim <=7.9 && totalFim >=5) {
+			
+			
+			//IF ELSE : APROVADOS,REPROVADOS,RECUPERA√á√ÉO					
+			   if(totalFim <=7.9 && totalFim >=5) {
 					recuperacao++;
 				}else if(totalFim<5) {
-					reprovado++;								//IF ELSE : APROVADOS,REPROVADOS,RECUPERA«√O
+					reprovado++;							
 				}else { 
 					aprovado++;
 				}
 				
 				
-				
-				if(maior<notasFim[0]) {
-						maior=notasFim[0];					// MAIOR MEDIA;
-						}
-					if(menor>notasFim[i]) {
-						menor=notasFim[i];					//MENOR MEDIA
-					}
-					
+			// MAIOR MEDIA - MENOR MEDIA
+			 
 					
 				
 					}//Final FOR
 			
-			mediaT=total/al;					//MEDIA GERAL
+			//MEDIA GERAL
+			
+			 maior=0;
+			 menor=10;
+			for( i=1; i<al+1; i++) {
+			if(notasFinal[i]>maior) {
+				maior=notasFinal[i];
+		}
+		if(notasFinal[i]<menor){ 
+				menor=notasFinal[i];					
+			}
+			}
 			
 			
-				
+			//MEDIA GERAL
+			mediaT=total/al;					
 			
+			
+			    System.out.print("-------------------------------------------------------");
+			    System.out.print("\n");
 				System.out.println(aprovado + "  aluno(s) foram aprovados.");
 				System.out.println(reprovado + " aluno(s) foram reprovados.");
-				System.out.println(recuperacao + " aluno(s) entraram em recuperaÁ„o.");
-				System.out.println("Esta È a Maior mÈdia: "+maior);
-				System.out.println("Esta È a Menor mÈdia: "+menor);  	
-				System.out.println("A mÈdia Geral È " +mediaT);
+				System.out.println(recuperacao + " aluno(s) entraram em recupera√ß√£o.");
+				System.out.println("Esta √© a Maior m√©dia: "+maior);
+				System.out.println("Esta √© a Menor m√©dia: "+menor);  	
+				System.out.println("A m√©dia Geral √© " +mediaT);
 				
 				
 			}
 		}	
 		
-		
-
-	
-				
-		
-		
-		
-		
-		
-
-
-
-
-
-
-
-
